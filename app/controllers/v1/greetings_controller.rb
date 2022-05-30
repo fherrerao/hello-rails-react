@@ -1,9 +1,8 @@
 class V1::GreetingsController < ApplicationController
   def index
-    render json: { :greetings => [
-        {
-          :message => "Hello, World!"
-        }
-    ] }.to_json
+    @greetings = Greeting.all.sample
+    respond_to do |format|
+      format.json { render json: @greetings }
+    end
   end
 end
