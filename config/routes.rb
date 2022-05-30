@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   namespace :v1, defaults: { format: :json } do
     resources :greetings, only: [:index]
   end
+  resources :greetings, only: [:index]
+
   # Defines the root path route ("/")
-  # root "articles#index"
+  root "greetings#index"
 end
