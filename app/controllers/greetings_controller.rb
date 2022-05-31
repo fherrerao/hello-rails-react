@@ -1,5 +1,4 @@
 class GreetingsController < ApplicationController
-  def index
-    @greetings = Greeting.all.sample    
+  def index    
   end
 end
