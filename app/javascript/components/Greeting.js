@@ -1,13 +1,22 @@
-import React from "react"
+import React, { useEffect } from "react"
 import PropTypes from "prop-types"
-class Greeting extends React.Component {
-  render () {
-    return (
-      <React.Fragment>
-        Message: {this.props.message}
-      </React.Fragment> 
-    );
-  }
+import { useDispatch, useSelector } from "react-redux"
+import { fetchGreeting } from "../redux/greetings/greetings";
+
+function Greeting() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchGreeting());
+  },[]);
+
+  const message = useSelector(state => state.greetingReducer);
+
+  return (
+    <React.Fragment>
+      Message: {message.message}
+    </React.Fragment> 
+  );
 }
 
 Greeting.propTypes = {
