@@ -4,9 +4,9 @@ Rails.application.routes.draw do
     resources :greetings, only: [:index]
   end 
 
-  get '*page', to: 'greetings#index', constraints: ->(req) do
-    !req.xhr? && req.format.html?
-  end
+  # get '*page', to: 'greetings#index', constraints: ->(req) do
+  #   !req.xhr? && req.format.html?
+  # end
 
   # Defines the root path route ("/")
   root "greetings#index"
